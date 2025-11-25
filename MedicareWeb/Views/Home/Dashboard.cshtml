@@ -1,0 +1,58 @@
+@model DashboardViewModel
+@{
+    ViewData["Title"] = "Inicio";
+}
+
+<div class="card-grid">
+    <div class="card">
+        <h3>Recetas pendientes</h3>
+        <p class="note">Certificados por revisar</p>
+        <div class="stat-number">@Model.PendingPrescriptions</div>
+    </div>
+    <div class="card">
+        <h3>Urgencias</h3>
+        <p class="note">Alertas recientes</p>
+        <div class="stat-number" style="color: var(--danger);">@Model.Urgencies</div>
+    </div>
+    <div class="card">
+        <h3>Accesos directos</h3>
+        <div class="list">
+            @foreach (var link in Model.QuickLinks)
+            {
+                <div class="list-item">
+                    <span>@link.Title</span>
+                    <small class="note">@link.Description</small>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<div class="split" style="margin-top:20px;">
+    <div class="card">
+        <h3>Especialidad destacada</h3>
+        <div class="badge" style="margin-top:10px; width: fit-content;">@Model.SpecialtyFocus.Name</div>
+        <p class="note">@Model.SpecialtyFocus.Description</p>
+        <div class="list">
+            <div class="list-item"><strong>Duración</strong><span>@Model.SpecialtyFocus.Duration</span></div>
+            <div class="list-item"><strong>Precio</strong><span>@Model.SpecialtyFocus.Price</span></div>
+            <div class="list-item"><strong>Contacto</strong><span>@Model.SpecialtyFocus.Contact</span></div>
+        </div>
+    </div>
+    <div class="card">
+        <h3>Servicios populares</h3>
+        <div class="list">
+            @foreach (var service in Model.PopularServices)
+            {
+                <div class="list-item">
+                    <span>@service.Name</span>
+                    <strong>@service.Requests</strong>
+                </div>
+                @if (!string.IsNullOrEmpty(service.Badge))
+                {
+                    <small class="badge-pill">@service.Badge</small>
+                }
+            }
+        </div>
+    </div>
+</div>

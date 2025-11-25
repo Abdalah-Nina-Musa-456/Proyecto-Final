@@ -1,0 +1,56 @@
+@model AppointmentViewModel
+@{
+    ViewData["Title"] = "Citas";
+}
+
+<div class="split">
+    <div class="form-card">
+        <h3>Nueva cita</h3>
+        <div class="form-grid">
+            <div>
+                <div class="label">Paciente</div>
+                <select class="input">
+                    @foreach (var patient in Model.Patients)
+                    {
+                        <option>@patient</option>
+                    }
+                </select>
+            </div>
+            <div>
+                <div class="label">Servicio</div>
+                <select class="input">
+                    @foreach (var service in Model.Services)
+                    {
+                        <option>@service</option>
+                    }
+                </select>
+            </div>
+            <div>
+                <div class="label">Doctor</div>
+                <select class="input">
+                    @foreach (var doctor in Model.Doctors)
+                    {
+                        <option>@doctor</option>
+                    }
+                </select>
+            </div>
+            <div>
+                <div class="label">Fecha</div>
+                <input class="input" type="date" />
+            </div>
+            <div>
+                <div class="label">Hora</div>
+                <input class="input" type="time" />
+            </div>
+        </div>
+        <div>
+            <div class="label">Motivo</div>
+            <textarea class="input" rows="3" placeholder="Describe el motivo de la consulta"></textarea>
+        </div>
+        <button class="button-primary">Confirmar cita</button>
+    </div>
+    <div class="card">
+        <h3>Lista de citas</h3>
+        <p class="note">Las citas aparecerán aquí cuando se confirmen.</p>
+    </div>
+</div>

@@ -1,0 +1,64 @@
+@model PrescriptionViewModel
+@{
+    ViewData["Title"] = "Recetas";
+}
+
+<div class="split">
+    <div class="form-card">
+        <h3>Nueva receta</h3>
+        <div class="form-grid">
+            <div>
+                <div class="label">Paciente</div>
+                <select class="input">
+                    @foreach (var patient in Model.Patients)
+                    {
+                        <option>@patient</option>
+                    }
+                </select>
+            </div>
+            <div>
+                <div class="label">Medicamento</div>
+                <select class="input">
+                    @foreach (var med in Model.Medicines)
+                    {
+                        <option>@med</option>
+                    }
+                </select>
+            </div>
+            <div>
+                <div class="label">Dosis</div>
+                <input class="input" placeholder="500 mg" />
+            </div>
+            <div>
+                <div class="label">Frecuencia</div>
+                <select class="input">
+                    @foreach (var freq in Model.Frequencies)
+                    {
+                        <option>@freq</option>
+                    }
+                </select>
+            </div>
+            <div>
+                <div class="label">Duración</div>
+                <select class="input">
+                    @foreach (var duration in Model.Durations)
+                    {
+                        <option>@duration</option>
+                    }
+                </select>
+            </div>
+        </div>
+        <div>
+            <div class="label">Indicaciones especiales</div>
+            <textarea class="input" rows="3" placeholder="Recomendaciones o recordatorios"></textarea>
+        </div>
+        <div class="form-actions">
+            <button class="button-primary">Guardar receta</button>
+            <button class="button-primary" style="background: var(--success); box-shadow:none;">Imprimir</button>
+        </div>
+    </div>
+    <div class="card">
+        <h3>Recetas recientes</h3>
+        <p class="note">Aún no hay recetas registradas.</p>
+    </div>
+</div>

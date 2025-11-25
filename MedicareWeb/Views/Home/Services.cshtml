@@ -1,0 +1,45 @@
+@model ServicesViewModel
+@{
+    ViewData["Title"] = "Servicios";
+}
+
+<div class="split">
+    <div class="card">
+        <h3>Especialidades médicas</h3>
+        <div class="list">
+            @foreach (var specialty in Model.Specialties)
+            {
+                <div class="info-block">
+                    <div class="section-title">@specialty.Name</div>
+                    <p class="note">@specialty.Description</p>
+                    <div class="small-list">
+                        <span><strong>Duración:</strong> @specialty.Duration</span>
+                        <span><strong>Profesional:</strong> @specialty.Contact</span>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    <div class="card">
+        <h3>Información de contacto</h3>
+        <div class="info-block">
+            <div class="section-title">@Model.Contacts.ClinicName</div>
+            <p class="note">@Model.Contacts.Address</p>
+            <div class="small-list">
+                <span><strong>Teléfono principal:</strong> @Model.Contacts.Phone</span>
+                <span><strong>Móvil:</strong> @Model.Contacts.Mobile</span>
+                <span><strong>Soporte:</strong> @Model.Contacts.SupportEmail</span>
+                <span><strong>Emergencias:</strong> @Model.Contacts.EmergencyEmail</span>
+            </div>
+        </div>
+        <div class="info-block">
+            <div class="section-title">Extensiones telefónicas</div>
+            <div class="small-list">
+                <span>Recepción: Ext. @Model.Contacts.ReceptionExtension</span>
+                <span>Cardiología: Ext. @Model.Contacts.CardiologyExtension</span>
+                <span>Pediatría: Ext. @Model.Contacts.PediatricsExtension</span>
+                <span>Traumatología: Ext. @Model.Contacts.TraumaExtension</span>
+            </div>
+        </div>
+    </div>
+</div>
