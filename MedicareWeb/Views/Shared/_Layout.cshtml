@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Medicare</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <div class="app-shell">
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="brand-icon">❤</div>
+                <div>
+                    <div class="brand-title">Medicare</div>
+                    <div class="brand-subtitle">Sistema Médico</div>
+                </div>
+            </div>
+            <nav class="nav-links">
+                <a asp-controller="Home" asp-action="Dashboard" class="nav-link">Inicio</a>
+                <a asp-controller="Home" asp-action="Appointments" class="nav-link">Citas</a>
+                <a asp-controller="Home" asp-action="Doctors" class="nav-link">Doctores</a>
+                <a asp-controller="Home" asp-action="Services" class="nav-link">Servicios</a>
+                <a asp-controller="Home" asp-action="Prescriptions" class="nav-link">Recetas</a>
+                <a asp-controller="Home" asp-action="Index" class="nav-link">Salir</a>
+            </nav>
+        </aside>
+        <main class="content">
+            <header class="topbar">
+                <div class="page-title">@ViewData["Title"]</div>
+                <div class="user-chip">
+                    <div class="avatar">MG</div>
+                    <div>
+                        <div class="chip-name">María González</div>
+                        <div class="chip-role">Paciente</div>
+                    </div>
+                </div>
+            </header>
+            <div class="page-body">
+                @RenderBody()
+            </div>
+        </main>
+    </div>
+    <script src="~/js/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+@{
+    Layout = null;
+    ViewData["Title"] = "Bienvenido";
+}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Medicare</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body class="auth-page">
+    <div class="auth-wrapper">
+        <div class="hero-card">
+            <div class="badge">MEDICARE</div>
+            <h1>Sistema de Gestión Médica</h1>
+            <p>Accede para gestionar citas, recetas y especialidades médicas.</p>
+            <div class="tabs">
+                <button class="tab active" data-tab-target="login">Iniciar sesión</button>
+                <button class="tab" data-tab-target="register">Registrarse</button>
+            </div>
+        </div>
+        <div class="card auth-card">
+            <div id="login" data-tab-content>
+                <h3>Bienvenido de nuevo</h3>
+                <p class="note">Ingresa tus credenciales para continuar.</p>
+                <div class="form-grid">
+                    <div>
+                        <div class="label">Usuario</div>
+                        <input class="input" placeholder="Ingresa tu usuario" />
+                    </div>
+                    <div>
+                        <div class="label">Contraseña</div>
+                        <input class="input" type="password" placeholder="Ingresa tu contraseña" />
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <label class="checkbox"><input type="checkbox" /> Recordarme</label>
+                    <a href="#" class="note">¿Olvidaste tu contraseña?</a>
+                </div>
+                <a class="button-primary" asp-action="Dashboard" asp-controller="Home">Iniciar sesión</a>
+            </div>
+            <div id="register" data-tab-content class="hidden">
+                <h3>Crear cuenta nueva</h3>
+                <p class="note">Completa el formulario para registrarte en el sistema.</p>
+                <div class="form-grid">
+                    <div>
+                        <div class="label">Nombre completo</div>
+                        <input class="input" placeholder="Nombre y apellidos" />
+                    </div>
+                    <div>
+                        <div class="label">Correo electrónico</div>
+                        <input class="input" type="email" placeholder="correo@ejemplo.com" />
+                    </div>
+                    <div>
+                        <div class="label">Nombre de usuario</div>
+                        <input class="input" placeholder="usuario123" />
+                    </div>
+                    <div>
+                        <div class="label">Contraseña</div>
+                        <input class="input" type="password" placeholder="Mínimo 6 caracteres" />
+                    </div>
+                    <div>
+                        <div class="label">Confirmar contraseña</div>
+                        <input class="input" type="password" placeholder="Repite la contraseña" />
+                    </div>
+                </div>
+                <label class="checkbox"><input type="checkbox" /> Acepto los términos y la política de privacidad</label>
+                <a class="button-primary" asp-action="Dashboard" asp-controller="Home">Crear cuenta</a>
+            </div>
+        </div>
+    </div>
+    <script src="~/js/site.js"></script>
+</body>
+</html>

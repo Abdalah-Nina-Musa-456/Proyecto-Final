@@ -1,0 +1,52 @@
+@model DoctorsViewModel
+@{
+    ViewData["Title"] = "Doctores";
+}
+
+<div class="split">
+    <div class="card">
+        <h3>Lista de doctores</h3>
+        <div class="list">
+            @foreach (var doctor in Model.Doctors)
+            {
+                <div class="list-item">
+                    <div>
+                        <strong>@doctor.Name</strong>
+                        <div class="note">@doctor.Specialty</div>
+                    </div>
+                    <div class="note">@doctor.Hours</div>
+                </div>
+            }
+        </div>
+    </div>
+    <div class="card">
+        <h3>Perfil destacado</h3>
+        <div class="info-block">
+            <div class="section-title">@Model.HighlightedDoctor.Name</div>
+            <div class="tag">@Model.HighlightedDoctor.Specialty</div>
+            <div class="small-list">
+                <span><strong>Correo:</strong> @Model.HighlightedDoctor.Email</span>
+                <span><strong>Teléfono:</strong> @Model.HighlightedDoctor.Phone</span>
+                <span><strong>Consultorio:</strong> @Model.HighlightedDoctor.Office</span>
+            </div>
+            <div>
+                <strong>Habilidades</strong>
+                <div class="small-list">
+                    @foreach (var skill in Model.HighlightedDoctor.Skills)
+                    {
+                        <span class="badge-pill">@skill</span>
+                    }
+                </div>
+            </div>
+            <div>
+                <strong>Disponibilidad</strong>
+                <div class="small-list">
+                    @foreach (var day in Model.HighlightedDoctor.Availability)
+                    {
+                        <span>@day</span>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
